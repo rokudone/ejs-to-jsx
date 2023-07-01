@@ -20,11 +20,13 @@
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-typescript": "^11.1.2",
     "rollup": "^3.26.0",
-    "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.6.0",
     "typescript": "^5.1.6"
   },
   "dependencies": {
+    "@types/jest": "^29.5.2",
+    "html-to-jsx": "^0.0.4",
+    "sparser": "^1.4.12",
     "ts-node": "^10.9.1",
     "vite": "^4.3.9",
     "vitest": "^0.32.2"
