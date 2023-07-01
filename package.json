@@ -2,13 +2,30 @@
   "name": "backbone-to-tsx",
   "version": "0.0.1",
   "description": "Convert Backbone.js code to tsx",
+  "type": "module",
   "bin": {
-    "view-to-tsx": "./bin/view-to-tsx.js",
-    "ejs-to-tsx": "./bin/ejs-to-tsx.js"
+    "view-to-tsx": "./dist/view-to-tsx.js",
+    "ejs-to-tsx": "./dist/ejs-to-tsx.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c",
+    "test": "vitest run",
+    "test:watch": "vitest watch"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "rokudone",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^25.0.2",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "@rollup/plugin-typescript": "^11.1.2",
+    "rollup": "^3.26.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.6.0",
+    "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "vite": "^4.3.9",
+    "vitest": "^0.32.2"
+  }
 }
