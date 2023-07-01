@@ -1,0 +1,14 @@
+{
+  "name": "backbone-to-tsx",
+  "version": "0.0.1",
+  "description": "Convert Backbone.js code to tsx",
+  "bin": {
+    "view-to-tsx": "./bin/view-to-tsx.js",
+    "ejs-to-tsx": "./bin/ejs-to-tsx.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
