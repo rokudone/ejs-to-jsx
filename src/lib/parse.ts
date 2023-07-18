@@ -1,6 +1,6 @@
-import "sparser"
+import "sparser";
 
-const parseEjs = (html: string): data => {
+const parse = (html: string): data => {
   sparser.options.source = html;
   sparser.options.language = "ejs";
   sparser.options.format = "objects";
@@ -8,4 +8,4 @@ const parseEjs = (html: string): data => {
   return sparser.parse.data;
 }
 
-export { parseEjs };
+export { parse };

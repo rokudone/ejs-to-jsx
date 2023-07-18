@@ -4,7 +4,9 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "types": [
-      "vitest/globals"
+      "vitest/globals",
+      "sparser",
+      "node"
     ],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -13,10 +15,13 @@
     "skipLibCheck": true,
     "baseUrl": "./src",
     "paths": {
-      "html-to-jsx": ["./@types/html-to-jsx"],
-      "sparser": ["./@types/sparser"]
-    }
+      "*": ["./@types/"]
+    },
+    "outDir": "./dist"
   },
+  "files": ["./@types/index.d.ts", "./node_modules/sparser/index.d.ts"],
+  "include": ["./src/**/*"],
+  "exclude": ["node_modules", "dist"],
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node"

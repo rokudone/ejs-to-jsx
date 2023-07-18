@@ -1,41 +1,33 @@
-import pluginTypescript from "@rollup/plugin-typescript"
-import pluginNodeResolve from "@rollup/plugin-node-resolve"
-import pluginCommonjs from "@rollup/plugin-commonjs"
+import typescript from "@rollup/plugin-typescript"
+import nodeResolve from "@rollup/plugin-node-resolve"
+import commonJS from "@rollup/plugin-commonjs"
+import inject from '@rollup/plugin-inject'
 
-const plugins = [
-  pluginTypescript(),
-  pluginCommonjs({
-    extensions: [
-      ".js",
-      ".ts"
-    ]
-  }),
-  pluginNodeResolve({
-    browser: false,
-  })
-]
-
-export default [
-  {
-    input: 'src/view-to-tsx.ts',
-    output: [
-      {
-        name: 'view-to-tsx.js',
-        format: 'iife',
-        sourcemap: 'inline'
-      },
-    ],
-    plugins
+export default {
+  input: 'src/index.ts',
+  external: ['sparser'],
+  output: {
+    dir: './dist/',
+    format: 'es',
+    sourcemap: 'false',
+    interop: 'defaultOnly',
+    globals: {
+      'sparser': 'sparser',
+    }
   },
-  {
-    input: 'src/ejs-to-tsx.ts',
-    output: [
-      {
-        name: 'ejs-to-tsx.js',
-        format: 'iife',
-        sourcemap: 'inline'
-      },
-    ],
-    plugins
-  },
-]
+  plugins: [
+    typescript({
+      declaration: false,
+    }),
+    nodeResolve(),
+    commonJS({
+      extensions: [
+        ".js",
+        ".ts"
+      ]
+    }),
+    inject({
+      'sparser': 'sparser'
+    }),
+  ]
+};
