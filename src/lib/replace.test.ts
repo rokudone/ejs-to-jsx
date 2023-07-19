@@ -295,4 +295,87 @@ describe('replace test', (): void => {
     expect(expected.token).toEqual(result.token);
     expect(expected.types).toEqual(result.types);
   })
+
+  test('void element', (): void => {
+    const data = {
+      begin: [
+        -1,  0,  1,  2, 3,  4,
+        5,  6,  7,  8, 9, 10,
+        11, 12, 13, 14
+      ],
+      ender: [
+        -1, -1, -1, -1, -1, -1,
+        -1, -1, -1, -1, -1, -1,
+        -1, -1, -1, -1
+      ],
+      lexer: [
+        'markup', 'markup',
+        'markup', 'markup',
+        'markup', 'markup',
+        'markup', 'markup',
+        'markup', 'markup',
+        'markup', 'markup',
+        'markup', 'markup',
+        'markup', 'markup'
+      ],
+      lines: [
+        0, 2, 2, 2, 2, 2,
+        2, 2, 2, 2, 2, 2,
+        2, 2, 2, 2
+      ],
+      stack: [
+        'global',   'area',
+        'base',     'br',
+        'col',      'embed',
+        'hr',       'iframe',
+        'img',      'input',
+        'link',     'meta',
+        'param',    'source',
+        'template', 'track'
+      ],
+      token: [
+        '<area>',   '<base>',
+        '<br>',     '<col>',
+        '<embed>',  '<hr>',
+        '<iframe>', '<img>',
+        '<input>',  '<link>',
+        '<meta>',   '<param>',
+        '<source>', '<template>',
+        '<track>',  '<wbr>'
+      ],
+      types: [
+        'start', 'start', 'start',
+        'start', 'start', 'start',
+        'start', 'start', 'start',
+        'start', 'start', 'start',
+        'start', 'start', 'start',
+        'start'
+      ]
+    };
+
+    const expectedToken = [
+      '<area/>',   '<base/>',
+      '<br/>',     '<col/>',
+      '<embed/>',  '<hr/>',
+      '<iframe/>', '<img/>',
+      '<input/>',  '<link/>',
+      '<meta/>',   '<param/>',
+      '<source/>', '<template/>',
+      '<track/>',  '<wbr/>'
+    ];
+
+    const expectedTypes = [
+      'singleton', 'singleton', 'singleton',
+      'singleton', 'singleton', 'singleton',
+      'singleton', 'singleton', 'singleton',
+      'singleton', 'singleton', 'singleton',
+      'singleton', 'singleton', 'singleton',
+      'singleton'
+    ];
+
+    const result = replace(data);
+
+    expect(expectedToken).toEqual(result.token);
+    expect(expectedTypes).toEqual(result.types);
+  });
 })

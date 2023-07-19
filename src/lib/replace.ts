@@ -158,6 +158,15 @@ const replace = (data: data) => {
             types: "script_end",
           }
         ]
+      case isSingleton(element):
+        return [
+          {
+            ...element,
+            token: element.token
+            .replace(/>/, "/>"),
+            types: "singleton",
+          }
+        ]
     }
     return element;
   });
@@ -223,6 +232,10 @@ const isTemplateStartScriptLet = (element: Element): boolean => {
 const isTemplateEndScriptLet = (element: Element): boolean => {
   return element.types === "template_end"
 }
+
+const isSingleton = (element: Element): boolean => {
+  return /^< *(area|base|br|col|embed|hr|iframe|img|input|link|meta|param|source|template|track|wbr)[^\/]*>/.test(element.token);
+};
 
 const convertAttribute = (token: string): string => {
   return token.replace(/^accept/, "accept")

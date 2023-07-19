@@ -65,4 +65,22 @@ describe('convert', () => {
 
     expect(expected).toEqual(result);
   });
+
+  test('singleton', () => {
+    const result = convert(`
+<div>
+  <input>
+  <input>
+  <input>
+</div>`);
+
+    const expected =`
+<div>
+  <input/>
+  <input/>
+  <input/>
+</div>`;
+
+    expect(expected).toEqual(result);
+  })
 });

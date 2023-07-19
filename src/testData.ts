@@ -1,8 +1,8 @@
 import "sparser"
 
-const parse = (html: string): data => {
+const parse = (html: string, language: string = "ejs"): data => {
   sparser.options.source = html;
-  sparser.options.language = "jsx";
+  sparser.options.language = language;
   sparser.options.format = "objects";
   sparser.parser();
   return sparser.parse.data;
@@ -30,11 +30,21 @@ export { parse };
 // console.log(parse('<div><% function hoge() {}%></div>'));
 // console.log(parse('<div><% var name=() => {%></div>'));
 
-console.log(parse(`
-<ul>
-  {['test'].map((name) => {
-    return (
-      <li>{ name }</li>
-    )
-  })}
-</ul>`));
+console.log(parse(
+`<area>
+<base>
+<br>
+<col>
+<embed>
+<hr>
+<iframe>
+<img>
+<input>
+<link>
+<meta>
+<param>
+<source>
+<template>
+<track>
+<wbr>`));
+

@@ -164,5 +164,44 @@ describe('render test', (): void => {
     expect(expected).toEqual(result);
   });
 
+  test('singleton', () => {
+    const data = {
+      begin: [ -1, 0 ],
+      ender: [ -1, -1 ],
+      lexer: [ 'markup', 'markup' ],
+      lines: [ 0, 1 ],
+      stack: [ 'global', 'input' ],
+      token: [ '<input/>', 'class="fuga"' ],
+      types: [ 'singleton', 'attribute' ]
+    }
+
+    const expected = '<input class="fuga"/>';
+
+    const result = render(data);
+    expect(expected).toEqual(result);
+  });
+
+  test('singleton indent', () => {
+
+    const data = {
+      begin: [ -1, 0, 0, 0 ],
+      ender: [ 3, 3, 3, 3 ],
+      lexer: [ 'markup', 'markup', 'markup', 'markup' ],
+      lines: [ 2, 2, 2, 2 ],
+      stack: [ 'global', 'div', 'div', 'div' ],
+      token: [ '<div>', '<input/>', '<input/>', '</div>' ],
+      types: [ 'start', 'singleton', 'singleton', 'end' ]
+    };
+
+    const expected = `
+<div>
+  <input/>
+  <input/>
+</div>`;
+
+    const result = render(data);
+
+    expect(expected).toEqual(result);
+  });
 });
 
