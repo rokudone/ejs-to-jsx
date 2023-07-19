@@ -19,13 +19,8 @@ export default {
     typescript({
       declaration: false,
     }),
-    nodeResolve(),
-    commonJS({
-      extensions: [
-        ".js",
-        ".ts"
-      ]
-    }),
+    nodeResolve({preferBuiltins: true}),
+    commonJS(),
     inject({
       'sparser': 'sparser'
     }),
