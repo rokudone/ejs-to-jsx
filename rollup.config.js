@@ -6,10 +6,10 @@ import inject from '@rollup/plugin-inject'
 
 const buildConfig = (input) => {
   return {
-    input: `src/${input}.ts`,
+    input: `src/${input}/index.ts`,
     external: ['sparser'],
     output: {
-      dir: './dist/',
+      file: `dist/${input}.js`,
       format: 'es',
       sourcemap: 'false',
       interop: 'defaultOnly',
@@ -32,4 +32,5 @@ const buildConfig = (input) => {
 
 export default [
   buildConfig('ejs-to-jsx'),
+  buildConfig('jsx-to-component'),
 ];

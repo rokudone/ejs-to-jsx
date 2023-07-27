@@ -4,7 +4,7 @@ import { convert } from './lib/convert';
 import fs from 'fs';
 
 if (process.argv.length < 3) {
-  console.log('Usage: jsx-to-convert <file>');
+  console.log('Usage: ejs-to-jsx <file>');
   process.exit(1);
 }
 
