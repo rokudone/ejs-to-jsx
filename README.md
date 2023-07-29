@@ -3,7 +3,7 @@
 Under development. (We have verified that it works in one way, but due to lack of examples, it may not work perfectly.
 Pull Requests are welcome.
 
-See `src/ejs-to-jsx/lib/converter.test.ts` for an example of how it works.
+See `src/ejs-to-jsx/lib/convert.test.ts` for an example of how it works.
 
 ## Usage:
 
@@ -21,7 +21,7 @@ If you want to develop this plugin.
 
 ## Description:
 
-- converter.tsx
+- convert.tsx
     - Main script.
     - call parse.tsx, replace.tsx, render.tsx
 - parse.tsx
