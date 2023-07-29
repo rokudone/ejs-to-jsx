@@ -7,7 +7,7 @@
     "ejs-to-jsx": "./dist/ejs-to-jsx.js"
   },
   "scripts": {
-    "ejs-to-jsx": "yarn  ./dist/ejs-to-jsx.js",
+    "ejs-to-jsx": "ts-node ./src/ejs-to-jsx/index.ts",
     "build": "rollup -c",
     "test": "vitest run",
     "test:watch": "vitest watch"

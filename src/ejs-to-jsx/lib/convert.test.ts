@@ -44,24 +44,24 @@ describe('convert', () => {
 
   test('map', () => {
     const result = convert( `
-<ul>
-  <div class="hoge">
+<div>
+  <ul class="hoge">
     <% ['test'].map((name) => { %>
       <li><%= name %></li>
     <% }) %>
-  </div>
-</ul>`);
+  </ul>
+</div>`);
 
     const expected = `
-<ul>
-  <div className="hoge">
+<div>
+  <ul className="hoge">
     {['test'].map((name) => {
       return (
         <li>{ name }</li>
       )
     })}
-  </div>
-</ul>`;
+  </ul>
+</div>`;
 
     expect(expected).toEqual(result);
   });
