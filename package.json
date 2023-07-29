@@ -7,7 +7,7 @@
     "ejs-to-jsx": "./dist/ejs-to-jsx.js"
   },
   "scripts": {
-    "ejs-to-jsx": "ts-node ./src/ejs-to-jsx/index.ts",
+    "ejs-to-jsx": "tsx ./src/ejs-to-jsx/index.ts",
     "build": "rollup -c",
     "test": "vitest run",
     "test:watch": "vitest watch"
@@ -29,7 +29,7 @@
     "@types/jest": "^29.5.2",
     "@types/node": "^20.4.2",
     "sparser": "^1.4.12",
-    "ts-node": "^10.9.1",
+    "tsx": "^3.12.7",
     "vite": "^4.3.9",
     "vitest": "^0.32.2"
   }
